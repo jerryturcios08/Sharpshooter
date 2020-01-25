@@ -66,20 +66,60 @@
 		C66B590B23DB8B2000A77366 /* Sharpshooter */ = {
 			isa = PBXGroup;
 			children = (
+				C66B592F23DBE92E00A77366 /* Game */,
+				C66B593023DBE94000A77366 /* Particles */,
+				C66B593123DBE94E00A77366 /* Screens */,
+				C66B592E23DBE91000A77366 /* Sounds */,
+				C66B593223DBE95700A77366 /* Storyboards */,
 				C66B590C23DB8B2000A77366 /* AppDelegate.swift */,
 				C66B591923DB8B2300A77366 /* Assets.xcassets */,
-				C66B592823DBC71500A77366 /* dryfire.mp3 */,
-				C66B590E23DB8B2000A77366 /* GameScene.sks */,
-				C66B591223DB8B2000A77366 /* GameScene.swift */,
-				C66B591423DB8B2000A77366 /* GameViewController.swift */,
-				C66B592623DBBB5C00A77366 /* gunfire.mp3 */,
 				C66B591E23DB8B2300A77366 /* Info.plist */,
 				C66B591B23DB8B2300A77366 /* LaunchScreen.storyboard */,
-				C66B591623DB8B2000A77366 /* Main.storyboard */,
-				C66B592A23DBC7B400A77366 /* reload.mp3 */,
-				C66B592C23DBC8D300A77366 /* SparkParticles.sks */,
 			);
 			path = Sharpshooter;
+			sourceTree = "<group>";
+		};
+		C66B592E23DBE91000A77366 /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				C66B592823DBC71500A77366 /* dryfire.mp3 */,
+				C66B592623DBBB5C00A77366 /* gunfire.mp3 */,
+				C66B592A23DBC7B400A77366 /* reload.mp3 */,
+			);
+			path = Sounds;
+			sourceTree = "<group>";
+		};
+		C66B592F23DBE92E00A77366 /* Game */ = {
+			isa = PBXGroup;
+			children = (
+				C66B590E23DB8B2000A77366 /* GameScene.sks */,
+				C66B591223DB8B2000A77366 /* GameScene.swift */,
+			);
+			path = Game;
+			sourceTree = "<group>";
+		};
+		C66B593023DBE94000A77366 /* Particles */ = {
+			isa = PBXGroup;
+			children = (
+				C66B592C23DBC8D300A77366 /* SparkParticles.sks */,
+			);
+			path = Particles;
+			sourceTree = "<group>";
+		};
+		C66B593123DBE94E00A77366 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				C66B591423DB8B2000A77366 /* GameViewController.swift */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		C66B593223DBE95700A77366 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				C66B591623DB8B2000A77366 /* Main.storyboard */,
+			);
+			path = Storyboards;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
