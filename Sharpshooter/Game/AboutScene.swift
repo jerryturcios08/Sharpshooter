@@ -28,10 +28,10 @@ class AboutScene: GameScene {
             "Shoot the large green targets for points. Shoot ",
             "the small green targets for extra points. Do not ",
             "shoot the red targets, and do not miss! You have ",
-            "sixty seconds each game. A reload button is available ",
-            "on the bottom right when needed. All game assets ",
-            "and source code belong to JT Studios. All sounds ",
-            "used are a property of soundbible.com.",
+            "sixty seconds each game. You have 6 bullets. The ",
+            "reload button gives you 6 more bullets. All game ",
+            "assets and source code belong to Jerry Turcios. ",
+            "All sounds used belong to soundbible.com.",
         ]
 
         for (index, yValue) in [410, 380, 350, 320, 290, 260, 230].enumerated() {
