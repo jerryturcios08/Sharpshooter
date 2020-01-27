@@ -15,6 +15,9 @@ class GameScene: SKScene {
     var ammoCountLabel: SKLabelNode!
     var reloadButton: SKSpriteNode!
 
+    var backButton: SKSpriteNode!
+    var retryButton: SKSpriteNode!
+
     var score = 0 {
         didSet {
             scoreLabel.text = "Score: \(score)"
@@ -89,7 +92,7 @@ class GameScene: SKScene {
         timerLabel.position = CGPoint(x: 16, y: 720)
         timerLabel.horizontalAlignmentMode = .left
         addChild(timerLabel)
-        timeLeft = 60
+        timeLeft = 1
 
         ammoCountLabel = SKLabelNode(fontNamed: "Chalkduster")
         ammoCountLabel.position = CGPoint(x: 1000, y: 720)
@@ -162,9 +165,10 @@ class GameScene: SKScene {
             nodeTimer?.invalidate()
             gameTimer?.invalidate()
 
+            let finalScore = self.score
+
             DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
                 [weak self] in
-
                 // Removes all nodes after five seconds
                 self?.removeAllChildren()
 
@@ -176,22 +180,33 @@ class GameScene: SKScene {
                 self?.addChild(background)
 
                 // Creates final result UI elements
+
                 let gameOverLabel = SKLabelNode()
                 gameOverLabel.fontName = "American Typewriter"
                 gameOverLabel.fontSize = 50
                 gameOverLabel.fontColor = .black
                 gameOverLabel.text = "GAME OVER"
-                gameOverLabel.position = CGPoint(x: 512, y: 100)
+                gameOverLabel.position = CGPoint(x: 512, y: 220)
                 self?.addChild(gameOverLabel)
 
                 let finalScoreLabel = SKLabelNode()
                 finalScoreLabel.fontName = "Chalkduster"
-                finalScoreLabel.text = "Final score: \(self!.score)"
-                finalScoreLabel.position = CGPoint(x: 512, y: 240)
+                finalScoreLabel.text = "Final score: \(finalScore)"
+                finalScoreLabel.position = CGPoint(x: 512, y: 280)
                 self?.addChild(finalScoreLabel)
-            }
 
-            return
+                self?.backButton = SKSpriteNode(imageNamed: "Main Menu Button")
+                self?.backButton.name = "Main Menu"
+                self?.backButton.position = CGPoint(x: 380, y: 120)
+                self?.backButton.zPosition = 1
+                self?.addChild(self!.backButton)
+
+                self?.retryButton = SKSpriteNode(imageNamed: "Play Again Button")
+                self?.retryButton.name = "Play Again"
+                self?.retryButton.position = CGPoint(x: 640, y: 120)
+                self?.retryButton.zPosition = 1
+                self?.addChild(self!.retryButton)
+            }
         }
 
         // Removes the targets that leave the screen
@@ -208,6 +223,17 @@ class GameScene: SKScene {
         let tappedNodes = nodes(at: location)
 
         for node in tappedNodes {
+            // Performs an action for the game over screen
+            if timeLeft == 0 {
+                if node.name == "Main Menu" {
+                    let reveal = SKTransition.fade(withDuration: 1)
+                    let menuScene = MenuScene(size: self.size)
+                    view?.presentScene(menuScene, transition: reveal)
+                } else if node.name == "Play Again" {
+                    // RETRY CODE
+                }
+            }
+
             // Plays an appropriate sound based on remaining ammo
             if numberOfClipsRemaining == 0 {
                 run(SKAction.playSoundFileNamed("dryfire.mp3", waitForCompletion: false))
