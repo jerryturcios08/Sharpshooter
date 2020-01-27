@@ -24,6 +24,27 @@ class AboutScene: GameScene {
         title.zPosition = 1
         addChild(title)
 
+        let informationParagraph = [
+            "Shoot the large green targets for points. Shoot ",
+            "the small green targets for extra points. Do not ",
+            "shoot the red targets, and do not miss! You have ",
+            "sixty seconds each game. A reload button is available ",
+            "on the bottom right when needed. All game assets ",
+            "and source code belong to JT Studios. All sounds ",
+            "used are a property of soundbible.com.",
+        ]
+
+        for (index, yValue) in [410, 380, 350, 320, 290, 260, 230].enumerated() {
+            let informationChunk = SKLabelNode()
+            informationChunk.text = informationParagraph[index]
+            informationChunk.fontName = "Roboto"
+            informationChunk.fontSize = 24
+            informationChunk.position = CGPoint(x: 512, y: yValue)
+            informationChunk.lineBreakMode = .byWordWrapping
+            informationChunk.zPosition = 1
+            addChild(informationChunk)
+        }
+
         let backButton = SKSpriteNode(imageNamed: "Main Menu Button")
         backButton.name = "Back"
         backButton.position = CGPoint(x: 512, y: 120)
