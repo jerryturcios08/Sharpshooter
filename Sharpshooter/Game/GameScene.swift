@@ -230,7 +230,9 @@ class GameScene: SKScene {
                     let menuScene = MenuScene(size: self.size)
                     view?.presentScene(menuScene, transition: reveal)
                 } else if node.name == "Play Again" {
-                    // RETRY CODE
+                    let reveal = SKTransition.crossFade(withDuration: 1)
+                    let gameScene = GameScene(size: self.size)
+                    view?.presentScene(gameScene, transition: reveal)
                 }
             }
 
