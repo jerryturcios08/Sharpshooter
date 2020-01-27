@@ -49,7 +49,9 @@ class MenuScene: GameScene {
                 let gameScene = GameScene(size: self.size)
                 view?.presentScene(gameScene, transition: reveal)
             } else if node.name == "About" {
-                let reveal = SKTransition.flipHorizontal(withDuration: 2)
+                let reveal = SKTransition.flipHorizontal(withDuration: 1)
+                let aboutScene = AboutScene(size: self.size)
+                view?.presentScene(aboutScene, transition: reveal)
             }
         }
     }
