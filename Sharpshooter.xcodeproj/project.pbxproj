@@ -13,7 +13,6 @@
 		C66B591523DB8B2000A77366 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C66B591423DB8B2000A77366 /* GameViewController.swift */; };
 		C66B591823DB8B2000A77366 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C66B591623DB8B2000A77366 /* Main.storyboard */; };
 		C66B591A23DB8B2300A77366 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C66B591923DB8B2300A77366 /* Assets.xcassets */; };
-		C66B591D23DB8B2300A77366 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C66B591B23DB8B2300A77366 /* LaunchScreen.storyboard */; };
 		C66B592723DBBB5C00A77366 /* gunfire.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C66B592623DBBB5C00A77366 /* gunfire.mp3 */; };
 		C66B592923DBC71500A77366 /* dryfire.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C66B592823DBC71500A77366 /* dryfire.mp3 */; };
 		C66B592B23DBC7B400A77366 /* reload.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C66B592A23DBC7B400A77366 /* reload.mp3 */; };
@@ -22,6 +21,7 @@
 		C68F7CB623DF26430070E40B /* MenuScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = C68F7CB523DF26430070E40B /* MenuScene.swift */; };
 		C68F7CB823DF333D0070E40B /* AboutScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = C68F7CB723DF333D0070E40B /* AboutScene.sks */; };
 		C68F7CBA23DF33680070E40B /* AboutScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = C68F7CB923DF33680070E40B /* AboutScene.swift */; };
+		C6D9B1F423DFAB2400E7CB0F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C6D9B1F323DFAB2400E7CB0F /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,7 +32,6 @@
 		C66B591423DB8B2000A77366 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		C66B591723DB8B2000A77366 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C66B591923DB8B2300A77366 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		C66B591C23DB8B2300A77366 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C66B591E23DB8B2300A77366 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C66B592623DBBB5C00A77366 /* gunfire.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = gunfire.mp3; sourceTree = "<group>"; };
 		C66B592823DBC71500A77366 /* dryfire.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = dryfire.mp3; sourceTree = "<group>"; };
@@ -42,6 +41,7 @@
 		C68F7CB523DF26430070E40B /* MenuScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuScene.swift; sourceTree = "<group>"; };
 		C68F7CB723DF333D0070E40B /* AboutScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = AboutScene.sks; sourceTree = "<group>"; };
 		C68F7CB923DF33680070E40B /* AboutScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutScene.swift; sourceTree = "<group>"; };
+		C6D9B1F323DFAB2400E7CB0F /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,7 +82,7 @@
 				C66B590C23DB8B2000A77366 /* AppDelegate.swift */,
 				C66B591923DB8B2300A77366 /* Assets.xcassets */,
 				C66B591E23DB8B2300A77366 /* Info.plist */,
-				C66B591B23DB8B2300A77366 /* LaunchScreen.storyboard */,
+				C6D9B1F323DFAB2400E7CB0F /* LaunchScreen.storyboard */,
 			);
 			path = Sharpshooter;
 			sourceTree = "<group>";
@@ -195,13 +195,13 @@
 				C66B591823DB8B2000A77366 /* Main.storyboard in Resources */,
 				C66B592D23DBC8D300A77366 /* SparkParticles.sks in Resources */,
 				C66B590F23DB8B2000A77366 /* GameScene.sks in Resources */,
+				C6D9B1F423DFAB2400E7CB0F /* LaunchScreen.storyboard in Resources */,
 				C66B592723DBBB5C00A77366 /* gunfire.mp3 in Resources */,
 				C68F7CB823DF333D0070E40B /* AboutScene.sks in Resources */,
 				C66B591A23DB8B2300A77366 /* Assets.xcassets in Resources */,
 				C66B592923DBC71500A77366 /* dryfire.mp3 in Resources */,
 				C66B592B23DBC7B400A77366 /* reload.mp3 in Resources */,
 				C68F7CB423DF26010070E40B /* MenuScene.sks in Resources */,
-				C66B591D23DB8B2300A77366 /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -229,14 +229,6 @@
 				C66B591723DB8B2000A77366 /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		C66B591B23DB8B2300A77366 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				C66B591C23DB8B2300A77366 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
