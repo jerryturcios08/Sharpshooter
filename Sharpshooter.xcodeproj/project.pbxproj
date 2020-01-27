@@ -18,6 +18,8 @@
 		C66B592923DBC71500A77366 /* dryfire.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C66B592823DBC71500A77366 /* dryfire.mp3 */; };
 		C66B592B23DBC7B400A77366 /* reload.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C66B592A23DBC7B400A77366 /* reload.mp3 */; };
 		C66B592D23DBC8D300A77366 /* SparkParticles.sks in Resources */ = {isa = PBXBuildFile; fileRef = C66B592C23DBC8D300A77366 /* SparkParticles.sks */; };
+		C68F7CB423DF26010070E40B /* MenuScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = C68F7CB323DF26010070E40B /* MenuScene.sks */; };
+		C68F7CB623DF26430070E40B /* MenuScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = C68F7CB523DF26430070E40B /* MenuScene.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +36,8 @@
 		C66B592823DBC71500A77366 /* dryfire.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = dryfire.mp3; sourceTree = "<group>"; };
 		C66B592A23DBC7B400A77366 /* reload.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = reload.mp3; sourceTree = "<group>"; };
 		C66B592C23DBC8D300A77366 /* SparkParticles.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = SparkParticles.sks; sourceTree = "<group>"; };
+		C68F7CB323DF26010070E40B /* MenuScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MenuScene.sks; sourceTree = "<group>"; };
+		C68F7CB523DF26430070E40B /* MenuScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuScene.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +98,8 @@
 			children = (
 				C66B590E23DB8B2000A77366 /* GameScene.sks */,
 				C66B591223DB8B2000A77366 /* GameScene.swift */,
+				C68F7CB323DF26010070E40B /* MenuScene.sks */,
+				C68F7CB523DF26430070E40B /* MenuScene.swift */,
 			);
 			path = Game;
 			sourceTree = "<group>";
@@ -187,6 +193,7 @@
 				C66B591A23DB8B2300A77366 /* Assets.xcassets in Resources */,
 				C66B592923DBC71500A77366 /* dryfire.mp3 in Resources */,
 				C66B592B23DBC7B400A77366 /* reload.mp3 in Resources */,
+				C68F7CB423DF26010070E40B /* MenuScene.sks in Resources */,
 				C66B591D23DB8B2300A77366 /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -199,6 +206,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C66B591323DB8B2000A77366 /* GameScene.swift in Sources */,
+				C68F7CB623DF26430070E40B /* MenuScene.swift in Sources */,
 				C66B591523DB8B2000A77366 /* GameViewController.swift in Sources */,
 				C66B590D23DB8B2000A77366 /* AppDelegate.swift in Sources */,
 			);
