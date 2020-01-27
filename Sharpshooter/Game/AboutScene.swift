@@ -10,18 +10,17 @@ import SpriteKit
 
 class AboutScene: GameScene {
     override func didMove(to view: SKView) {
-        let background = SKSpriteNode(imageNamed: "Background")
+        let background = SKSpriteNode(imageNamed: "Background (About)")
         background.name = "Background"
         background.position = CGPoint(x: 512, y: 384)
         background.zPosition = -1
         addChild(background)
 
-        let textGroup = SKSpriteNode()
-        textGroup.position = CGPoint(x: 512, y: 384)
-
-        let title = SKLabelNode(text: "This is the about page")
+        let title = SKLabelNode(text: "About Sharpshooter")
         title.name = "Title"
-        title.position = CGPoint(x: 512, y: 384)
+        title.fontName = "Roboto"
+        title.fontSize = 40
+        title.position = CGPoint(x: 512, y: 480)
         title.zPosition = 1
         addChild(title)
 
