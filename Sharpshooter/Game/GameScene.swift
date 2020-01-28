@@ -204,6 +204,8 @@ class GameScene: SKScene {
                 finalScoreLabel.position = CGPoint(x: 512, y: 440)
                 self?.addChild(finalScoreLabel)
 
+                // FIXME: Figure out why the golden label vanishes suddenly
+
                 let highScoreLabel = SKLabelNode()
                 highScoreLabel.fontColor = highScoreColor
                 highScoreLabel.fontName = "Chalkduster"
