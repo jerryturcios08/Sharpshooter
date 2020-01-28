@@ -86,13 +86,13 @@ class GameScene: SKScene {
         scoreLabel.position = CGPoint(x: 16, y: 16)
         scoreLabel.horizontalAlignmentMode = .left
         addChild(scoreLabel)
-        score = 0
+        score = 200
 
         timerLabel = SKLabelNode(fontNamed: "Chalkduster")
         timerLabel.position = CGPoint(x: 16, y: 720)
         timerLabel.horizontalAlignmentMode = .left
         addChild(timerLabel)
-        timeLeft = 60
+        timeLeft = 1
 
         ammoCountLabel = SKLabelNode(fontNamed: "Chalkduster")
         ammoCountLabel.position = CGPoint(x: 1000, y: 720)
@@ -166,9 +166,14 @@ class GameScene: SKScene {
             gameTimer?.invalidate()
 
             let finalScore = self.score
+            let highScore = StorageManager.loadHighScore()
+            var highScoreBroken = false
 
-            if finalScore > 0 {
-                //
+            if finalScore > highScore {
+                highScoreBroken = true
+
+                // Stores the new high score in user defaults
+                StorageManager.saveNewHighScore(finalScore: finalScore)
             }
 
             DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
@@ -177,7 +182,7 @@ class GameScene: SKScene {
                 self?.removeAllChildren()
 
                 // Re-adds the background
-                let background = SKSpriteNode(imageNamed: "Background")
+                let background = SKSpriteNode(imageNamed: "Background (About)")
                 background.name = "Background"
                 background.position = CGPoint(x: 512, y: 384)
                 background.zPosition = -1
@@ -185,19 +190,33 @@ class GameScene: SKScene {
 
                 // Creates final result UI elements
 
+                let finalScoreLabel = SKLabelNode()
+                finalScoreLabel.fontName = "Chalkduster"
+                finalScoreLabel.text = "Final score: \(finalScore)"
+                finalScoreLabel.position = CGPoint(x: 512, y: 440)
+                self?.addChild(finalScoreLabel)
+
+                let highScoreLabel = SKLabelNode()
+                highScoreLabel.fontName = "Chalkduster"
+
+                // Sets the high score label text appropriately if it was broken
+                if highScoreBroken {
+                    highScoreLabel.fontColor = AppColors.gold
+                    highScoreLabel.text = "New High Score: \(finalScore)"
+                } else {
+                    highScoreLabel.text = "High Score: \(highScore)"
+                }
+
+                highScoreLabel.position = CGPoint(x: 512, y: 360)
+                self?.addChild(highScoreLabel)
+
                 let gameOverLabel = SKLabelNode()
                 gameOverLabel.fontName = "American Typewriter"
                 gameOverLabel.fontSize = 50
                 gameOverLabel.fontColor = .black
                 gameOverLabel.text = "GAME OVER"
-                gameOverLabel.position = CGPoint(x: 512, y: 220)
+                gameOverLabel.position = CGPoint(x: 512, y: 260)
                 self?.addChild(gameOverLabel)
-
-                let finalScoreLabel = SKLabelNode()
-                finalScoreLabel.fontName = "Chalkduster"
-                finalScoreLabel.text = "Final score: \(finalScore)"
-                finalScoreLabel.position = CGPoint(x: 512, y: 280)
-                self?.addChild(finalScoreLabel)
 
                 self?.backButton = SKSpriteNode(imageNamed: "Main Menu Button")
                 self?.backButton.name = "Main Menu"

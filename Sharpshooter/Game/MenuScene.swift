@@ -8,6 +8,22 @@
 
 import SpriteKit
 
+struct StorageManager {
+    static func loadHighScore() -> Int {
+        let defaults = UserDefaults.standard
+        return defaults.object(forKey: "HighScore") as? Int ?? 0
+    }
+
+    static func saveNewHighScore(finalScore: Int) {
+        let defaults = UserDefaults.standard
+        defaults.set(finalScore, forKey: "HighScore")
+    }
+}
+
+enum AppColors {
+    static let gold = UIColor(red: 212 / 255, green: 175 / 255, blue: 55 / 255, alpha: 1.0)
+}
+
 class MenuScene: GameScene {
     var highScoreLabel: SKLabelNode!
     var startGameButton: SKSpriteNode!
@@ -20,8 +36,6 @@ class MenuScene: GameScene {
     }
 
     override func didMove(to view: SKView) {
-        loadHighScore()
-
         let background = SKSpriteNode(imageNamed: "Background")
         background.name = "Background"
         background.position = CGPoint(x: 512, y: 384)
@@ -34,14 +48,17 @@ class MenuScene: GameScene {
         title.size = CGSize(width: 568.7, height: 119.3)
         addChild(title)
 
-        highScoreLabel = SKLabelNode(fontNamed: "Arial Rounded MT Bold")
+        highScoreLabel = SKLabelNode()
         highScoreLabel.name = "HighScore"
         highScoreLabel.fontColor = .black
+        highScoreLabel.fontName = "Arial Rounded MT Bold"
         highScoreLabel.position = CGPoint(x: 512, y: 720)
         highScoreLabel.zPosition = 1
         highScoreLabel.horizontalAlignmentMode = .center
         addChild(highScoreLabel)
-        highScore = 0
+
+        // Sets the high score if stored data was found
+        highScore = StorageManager.loadHighScore()
 
         startGameButton = SKSpriteNode(imageNamed: "Start Game Button")
         startGameButton.name = "Start"
@@ -54,16 +71,6 @@ class MenuScene: GameScene {
         aboutButton.position = CGPoint(x: 644, y: 120)
         aboutButton.zPosition = 1
         addChild(aboutButton)
-    }
-
-    func loadHighScore() {
-        let defaults = UserDefaults.standard
-
-        if let storedData = defaults.object(forKey: "HighScore") as? Data {
-            if let decodedHighScore = try? JSONDecoder().decode(Int.self, from: storedData) {
-                highScore = decodedHighScore
-            }
-        }
     }
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
