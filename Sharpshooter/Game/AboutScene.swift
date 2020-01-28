@@ -18,7 +18,7 @@ class AboutScene: GameScene {
 
         let title = SKLabelNode(text: "About Sharpshooter")
         title.name = "Title"
-        title.fontName = "Roboto"
+        title.fontName = "American Typewriter"
         title.fontSize = 40
         title.position = CGPoint(x: 512, y: 480)
         title.zPosition = 1
@@ -37,7 +37,7 @@ class AboutScene: GameScene {
         for (index, yValue) in [410, 380, 350, 320, 290, 260, 230].enumerated() {
             let informationChunk = SKLabelNode()
             informationChunk.text = informationParagraph[index]
-            informationChunk.fontName = "Roboto"
+            informationChunk.fontName = "American Typewriter"
             informationChunk.fontSize = 24
             informationChunk.position = CGPoint(x: 512, y: yValue)
             informationChunk.lineBreakMode = .byWordWrapping

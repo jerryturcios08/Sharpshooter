@@ -167,6 +167,10 @@ class GameScene: SKScene {
 
             let finalScore = self.score
 
+            if finalScore > 0 {
+                //
+            }
+
             DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
                 [weak self] in
                 // Removes all nodes after five seconds
@@ -203,7 +207,7 @@ class GameScene: SKScene {
 
                 self?.retryButton = SKSpriteNode(imageNamed: "Play Again Button")
                 self?.retryButton.name = "Play Again"
-                self?.retryButton.position = CGPoint(x: 640, y: 120)
+                self?.retryButton.position = CGPoint(x: 644, y: 120)
                 self?.retryButton.zPosition = 1
                 self?.addChild(self!.retryButton)
             }

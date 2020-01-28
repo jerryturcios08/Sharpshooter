@@ -9,10 +9,19 @@
 import SpriteKit
 
 class MenuScene: GameScene {
+    var highScoreLabel: SKLabelNode!
     var startGameButton: SKSpriteNode!
     var aboutButton: SKSpriteNode!
 
+    var highScore = 0 {
+        didSet {
+            highScoreLabel.text = "High Score: \(highScore)"
+        }
+    }
+
     override func didMove(to view: SKView) {
+        loadHighScore()
+
         let background = SKSpriteNode(imageNamed: "Background")
         background.name = "Background"
         background.position = CGPoint(x: 512, y: 384)
@@ -25,6 +34,15 @@ class MenuScene: GameScene {
         title.size = CGSize(width: 568.7, height: 119.3)
         addChild(title)
 
+        highScoreLabel = SKLabelNode(fontNamed: "Arial Rounded MT Bold")
+        highScoreLabel.name = "HighScore"
+        highScoreLabel.fontColor = .black
+        highScoreLabel.position = CGPoint(x: 512, y: 720)
+        highScoreLabel.zPosition = 1
+        highScoreLabel.horizontalAlignmentMode = .center
+        addChild(highScoreLabel)
+        highScore = 0
+
         startGameButton = SKSpriteNode(imageNamed: "Start Game Button")
         startGameButton.name = "Start"
         startGameButton.position = CGPoint(x: 380, y: 120)
@@ -33,9 +51,19 @@ class MenuScene: GameScene {
 
         aboutButton = SKSpriteNode(imageNamed: "About Button")
         aboutButton.name = "About"
-        aboutButton.position = CGPoint(x: 640, y: 120)
+        aboutButton.position = CGPoint(x: 644, y: 120)
         aboutButton.zPosition = 1
         addChild(aboutButton)
+    }
+
+    func loadHighScore() {
+        let defaults = UserDefaults.standard
+
+        if let storedData = defaults.object(forKey: "HighScore") as? Data {
+            if let decodedHighScore = try? JSONDecoder().decode(Int.self, from: storedData) {
+                highScore = decodedHighScore
+            }
+        }
     }
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
