@@ -174,7 +174,7 @@ class GameScene: SKScene {
 
             // Sets the high score label properties if the final score broke the high score
             if finalScore > highScore {
-                highScoreColor = AppColors.gold
+                highScoreColor = AppColor.gold
                 highScoreText = "New High Score: \(finalScore)"
 
                 StorageManager.saveNewHighScore(finalScore: finalScore)

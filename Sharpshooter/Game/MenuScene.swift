@@ -8,22 +8,6 @@
 
 import SpriteKit
 
-struct StorageManager {
-    static func loadHighScore() -> Int {
-        let defaults = UserDefaults.standard
-        return defaults.object(forKey: "HighScore") as? Int ?? 0
-    }
-
-    static func saveNewHighScore(finalScore: Int) {
-        let defaults = UserDefaults.standard
-        defaults.set(finalScore, forKey: "HighScore")
-    }
-}
-
-enum AppColors {
-    static let gold = UIColor(red: 212 / 255, green: 175 / 255, blue: 55 / 255, alpha: 1.0)
-}
-
 class MenuScene: GameScene {
     var highScoreLabel: SKLabelNode!
     var startGameButton: SKSpriteNode!
