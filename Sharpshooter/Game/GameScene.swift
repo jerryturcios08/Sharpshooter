@@ -86,13 +86,13 @@ class GameScene: SKScene {
         scoreLabel.position = CGPoint(x: 16, y: 16)
         scoreLabel.horizontalAlignmentMode = .left
         addChild(scoreLabel)
-        score = 200
+        score = 0
 
         timerLabel = SKLabelNode(fontNamed: "Chalkduster")
         timerLabel.position = CGPoint(x: 16, y: 720)
         timerLabel.horizontalAlignmentMode = .left
         addChild(timerLabel)
-        timeLeft = 1
+        timeLeft = 60
 
         ammoCountLabel = SKLabelNode(fontNamed: "Chalkduster")
         ammoCountLabel.position = CGPoint(x: 1000, y: 720)
@@ -167,17 +167,25 @@ class GameScene: SKScene {
 
             let finalScore = self.score
             let highScore = StorageManager.loadHighScore()
-            var highScoreBroken = false
 
+            // High score label properties
+            let highScoreText: String
+            let highScoreColor: UIColor
+
+            // Sets the high score label properties if the final score broke the high score
             if finalScore > highScore {
-                highScoreBroken = true
+                highScoreColor = AppColors.gold
+                highScoreText = "New High Score: \(finalScore)"
 
-                // Stores the new high score in user defaults
                 StorageManager.saveNewHighScore(finalScore: finalScore)
+            } else {
+                highScoreColor = .white
+                highScoreText = "High Score: \(highScore)"
             }
 
             DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
                 [weak self] in
+
                 // Removes all nodes after five seconds
                 self?.removeAllChildren()
 
@@ -197,17 +205,10 @@ class GameScene: SKScene {
                 self?.addChild(finalScoreLabel)
 
                 let highScoreLabel = SKLabelNode()
+                highScoreLabel.fontColor = highScoreColor
                 highScoreLabel.fontName = "Chalkduster"
-
-                // Sets the high score label text appropriately if it was broken
-                if highScoreBroken {
-                    highScoreLabel.fontColor = AppColors.gold
-                    highScoreLabel.text = "New High Score: \(finalScore)"
-                } else {
-                    highScoreLabel.text = "High Score: \(highScore)"
-                }
-
-                highScoreLabel.position = CGPoint(x: 512, y: 360)
+                highScoreLabel.text = highScoreText
+                highScoreLabel.position = CGPoint(x: 512, y: 350)
                 self?.addChild(highScoreLabel)
 
                 let gameOverLabel = SKLabelNode()
