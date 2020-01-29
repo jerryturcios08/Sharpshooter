@@ -93,7 +93,7 @@ class GameScene: SKScene {
         timerLabel.position = CGPoint(x: 16, y: 720)
         timerLabel.horizontalAlignmentMode = .left
         addChild(timerLabel)
-        timeLeft = 5
+        timeLeft = 60
 
         ammoCountLabel = SKLabelNode(fontNamed: "Chalkduster")
         ammoCountLabel.position = CGPoint(x: 1000, y: 720)
