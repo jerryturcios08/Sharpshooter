@@ -17,6 +17,7 @@ class GameScene: SKScene {
 
     var backButton: SKSpriteNode!
     var retryButton: SKSpriteNode!
+    var gameOver = false
 
     var score = 0 {
         didSet {
@@ -161,6 +162,10 @@ class GameScene: SKScene {
     override func update(_ currentTime: TimeInterval) {
         // Checks if time has run out to perform "game over" actions
         if timeLeft == 0 {
+            timeLeft = 60
+            gameOver = true
+            timerLabel.text = "Time Left: 0"
+
             // Invalidates all timers
             nodeTimer?.invalidate()
             gameTimer?.invalidate()
@@ -188,6 +193,7 @@ class GameScene: SKScene {
 
                 // Removes all nodes after five seconds
                 self?.removeAllChildren()
+                self?.ammoTimer?.invalidate()
 
                 // Re-adds the background
                 let background = SKSpriteNode(imageNamed: "Background (About)")
@@ -250,7 +256,7 @@ class GameScene: SKScene {
 
         for node in tappedNodes {
             // Performs an action for the game over screen
-            if timeLeft == 0 {
+            if gameOver {
                 if node.name == "Main Menu" {
                     let reveal = SKTransition.fade(withDuration: 1)
                     let menuScene = MenuScene(size: self.size)
@@ -265,12 +271,12 @@ class GameScene: SKScene {
             // Plays an appropriate sound based on remaining ammo
             if numberOfClipsRemaining == 0 {
                 run(SKAction.playSoundFileNamed("dryfire.mp3", waitForCompletion: false))
-            } else if timeLeft > 0 && numberOfClipsRemaining > 0 {
+            } else if !gameOver && numberOfClipsRemaining > 0 {
                 run(SKAction.playSoundFileNamed("gunfire.mp3", waitForCompletion: false))
             }
 
             // Performs an action based on the node touched and exits the method
-            if node.name == "Reload" && numberOfClipsRemaining == 0 && timeLeft > 0 {
+            if node.name == "Reload" && numberOfClipsRemaining == 0 && !gameOver {
                 numberOfClipsRemaining = 6
                 run(SKAction.playSoundFileNamed("reload.mp3", waitForCompletion: false))
 
@@ -285,7 +291,7 @@ class GameScene: SKScene {
                 addChild(reloadButton)
 
                 return
-            } else if node.name == "Good Target" && numberOfClipsRemaining > 0 && timeLeft > 0 {
+            } else if node.name == "Good Target" && numberOfClipsRemaining > 0 && !gameOver {
                 if node.frame.size.height > 100 {
                     score += 2
                 } else {
@@ -301,7 +307,7 @@ class GameScene: SKScene {
 
                 node.removeFromParent()
                 return
-            } else if node.name == "Bad Target" && numberOfClipsRemaining > 0 && timeLeft > 0 {
+            } else if node.name == "Bad Target" && numberOfClipsRemaining > 0 && !gameOver {
                 score -= 15
                 numberOfClipsRemaining -= 1
 
@@ -313,7 +319,7 @@ class GameScene: SKScene {
 
                 node.removeFromParent()
                 return
-            } else if numberOfClipsRemaining > 0 && timeLeft > 0 {
+            } else if numberOfClipsRemaining > 0 && !gameOver {
                 score -= 5
                 numberOfClipsRemaining -= 1
                 return
