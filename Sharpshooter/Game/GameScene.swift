@@ -93,7 +93,7 @@ class GameScene: SKScene {
         timerLabel.position = CGPoint(x: 16, y: 720)
         timerLabel.horizontalAlignmentMode = .left
         addChild(timerLabel)
-        timeLeft = 60
+        timeLeft = 5
 
         ammoCountLabel = SKLabelNode(fontNamed: "Chalkduster")
         ammoCountLabel.position = CGPoint(x: 1000, y: 720)
@@ -269,7 +269,7 @@ class GameScene: SKScene {
             }
 
             // Plays an appropriate sound based on remaining ammo
-            if numberOfClipsRemaining == 0 {
+            if !gameOver && numberOfClipsRemaining == 0 {
                 run(SKAction.playSoundFileNamed("dryfire.mp3", waitForCompletion: false))
             } else if !gameOver && numberOfClipsRemaining > 0 {
                 run(SKAction.playSoundFileNamed("gunfire.mp3", waitForCompletion: false))
