@@ -7,7 +7,6 @@
 //
 
 import SpriteKit
-import GameplayKit
 
 class GameScene: SKScene {
     var scoreLabel: SKLabelNode!
@@ -18,6 +17,10 @@ class GameScene: SKScene {
     var backButton: SKSpriteNode!
     var retryButton: SKSpriteNode!
     var gameOver = false
+
+    let dryFireSound = SKAction.playSoundFileNamed("dryfire.mp3", waitForCompletion: false)
+    let gunFireSound = SKAction.playSoundFileNamed("gunfire.mp3", waitForCompletion: false)
+    let reloadSound = SKAction.playSoundFileNamed("reload.mp3", waitForCompletion: false)
 
     var score = 0 {
         didSet {
@@ -78,6 +81,7 @@ class GameScene: SKScene {
     override func didMove(to view: SKView) {
         let background = SKSpriteNode(imageNamed: "Background")
         background.name = "Background"
+        background.blendMode = .replace
         background.position = CGPoint(x: 512, y: 384)
         background.zPosition = -1
         addChild(background)
@@ -270,15 +274,15 @@ class GameScene: SKScene {
 
             // Plays an appropriate sound based on remaining ammo
             if !gameOver && numberOfClipsRemaining == 0 {
-                run(SKAction.playSoundFileNamed("dryfire.mp3", waitForCompletion: false))
+                run(dryFireSound)
             } else if !gameOver && numberOfClipsRemaining > 0 {
-                run(SKAction.playSoundFileNamed("gunfire.mp3", waitForCompletion: false))
+                run(gunFireSound)
             }
 
             // Performs an action based on the node touched and exits the method
             if node.name == "Reload" && numberOfClipsRemaining == 0 && !gameOver {
                 numberOfClipsRemaining = 6
-                run(SKAction.playSoundFileNamed("reload.mp3", waitForCompletion: false))
+                run(reloadSound)
 
                 ammoTimer?.invalidate()
                 ammoCountLabel.isHidden = false
