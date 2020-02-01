@@ -296,10 +296,24 @@ class GameScene: SKScene {
 
                 return
             } else if node.name == "Good Target" && numberOfClipsRemaining > 0 && !gameOver {
+                let pointLabel: SKSpriteNode
+
                 if node.frame.size.height > 100 {
                     score += 2
+
+                    pointLabel = SKSpriteNode(imageNamed: "Plus 2")
+                    pointLabel.position = node.position
+                    pointLabel.size = CGSize(width: 60, height: 45)
+                    pointLabel.zPosition = 2
+                    addChild(pointLabel)
                 } else {
                     score += 5
+
+                    pointLabel = SKSpriteNode(imageNamed: "Plus 5")
+                    pointLabel.position = node.position
+                    pointLabel.size = CGSize(width: 60, height: 45)
+                    pointLabel.zPosition = 2
+                    addChild(pointLabel)
                 }
                 numberOfClipsRemaining -= 1
 
@@ -310,8 +324,20 @@ class GameScene: SKScene {
                 }
 
                 node.removeFromParent()
+                pointLabel.run(SKAction.fadeOut(withDuration: 1))
+
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                    pointLabel.removeFromParent()
+                }
+
                 return
             } else if node.name == "Bad Target" && numberOfClipsRemaining > 0 && !gameOver {
+                let pointLabel = SKSpriteNode(imageNamed: "Minus 15")
+                pointLabel.position = node.position
+                pointLabel.size = CGSize(width: 80, height: 50)
+                pointLabel.zPosition = 2
+                addChild(pointLabel)
+
                 score -= 15
                 numberOfClipsRemaining -= 1
 
@@ -322,10 +348,29 @@ class GameScene: SKScene {
                 }
 
                 node.removeFromParent()
+                pointLabel.run(SKAction.fadeOut(withDuration: 1))
+
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                    pointLabel.removeFromParent()
+                }
+
                 return
             } else if numberOfClipsRemaining > 0 && !gameOver {
+                let pointLabel = SKSpriteNode(imageNamed: "Minus 5")
+                pointLabel.position = location
+                pointLabel.size = CGSize(width: 60, height: 45)
+                pointLabel.zPosition = 2
+                addChild(pointLabel)
+
                 score -= 5
                 numberOfClipsRemaining -= 1
+
+                pointLabel.run(SKAction.fadeOut(withDuration: 1))
+
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                    pointLabel.removeFromParent()
+                }
+
                 return
             }
         }
