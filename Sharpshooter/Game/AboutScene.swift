@@ -25,16 +25,13 @@ class AboutScene: GameScene {
         addChild(title)
 
         let informationParagraph = [
-            "Shoot the large green targets for points. Shoot ",
-            "the small green targets for extra points. Do not ",
-            "shoot the red targets, and do not miss! You have ",
-            "sixty seconds each game. You have 6 bullets. The ",
-            "reload button gives you 6 more bullets. All game ",
-            "assets and source code belong to Jerry Turcios. ",
+            "Shoot the green targets for points, but do not",
+            "shoot the red targets. Do not miss! The button",
+            "on the bottom right is for reloading on ammo.",
             "All sounds used belong to soundbible.com.",
         ]
 
-        for (index, yValue) in [410, 380, 350, 320, 290, 260, 230].enumerated() {
+        for (index, yValue) in [440, 410, 380, 350].enumerated() {
             let informationChunk = SKLabelNode()
             informationChunk.text = informationParagraph[index]
             informationChunk.fontName = "American Typewriter"
@@ -47,7 +44,7 @@ class AboutScene: GameScene {
 
         let backButton = SKSpriteNode(imageNamed: "Main Menu Button")
         backButton.name = "Back"
-        backButton.position = CGPoint(x: 512, y: 120)
+        backButton.position = CGPoint(x: 512, y: 275)
         backButton.zPosition = 1
         addChild(backButton)
     }
