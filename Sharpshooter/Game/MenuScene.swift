@@ -34,7 +34,7 @@ class MenuScene: GameScene {
 
         highScoreLabel = SKLabelNode()
         highScoreLabel.name = "HighScore"
-        highScoreLabel.fontColor = .black
+        highScoreLabel.fontColor = .white
         highScoreLabel.fontName = "Arial Rounded MT Bold"
         highScoreLabel.position = CGPoint(x: 512, y: 720)
         highScoreLabel.zPosition = 1

@@ -97,7 +97,7 @@ class GameScene: SKScene {
         timerLabel.position = CGPoint(x: 16, y: 720)
         timerLabel.horizontalAlignmentMode = .left
         addChild(timerLabel)
-        timeLeft = 60
+        timeLeft = 0
 
         ammoCountLabel = SKLabelNode(fontNamed: "Chalkduster")
         ammoCountLabel.position = CGPoint(x: 1000, y: 720)
@@ -183,7 +183,7 @@ class GameScene: SKScene {
 
             // Sets the high score label properties if the final score broke the high score
             if finalScore > highScore {
-                highScoreColor = AppColor.gold
+                highScoreColor = .yellow
                 highScoreText = "New High Score: \(finalScore)"
 
                 StorageManager.saveNewHighScore(finalScore: finalScore)
@@ -209,18 +209,19 @@ class GameScene: SKScene {
                 // Creates final result UI elements
 
                 let finalScoreLabel = SKLabelNode()
-                finalScoreLabel.fontName = "Chalkduster"
+                finalScoreLabel.fontColor = .cyan
+                finalScoreLabel.fontName = "Arial Rounded MT Bold"
                 finalScoreLabel.text = "Final score: \(finalScore)"
-                finalScoreLabel.position = CGPoint(x: 512, y: 440)
+                finalScoreLabel.position = CGPoint(x: 512, y: 720)
                 self?.addChild(finalScoreLabel)
 
                 // FIXME: Figure out why the golden label vanishes suddenly
 
                 let highScoreLabel = SKLabelNode()
                 highScoreLabel.fontColor = highScoreColor
-                highScoreLabel.fontName = "Chalkduster"
+                highScoreLabel.fontName = "Arial Rounded MT Bold"
                 highScoreLabel.text = highScoreText
-                highScoreLabel.position = CGPoint(x: 512, y: 350)
+                highScoreLabel.position = CGPoint(x: 512, y: 680)
                 self?.addChild(highScoreLabel)
 
                 let gameOverLabel = SKLabelNode()
@@ -228,18 +229,18 @@ class GameScene: SKScene {
                 gameOverLabel.fontSize = 50
                 gameOverLabel.fontColor = .black
                 gameOverLabel.text = "GAME OVER"
-                gameOverLabel.position = CGPoint(x: 512, y: 260)
+                gameOverLabel.position = CGPoint(x: 512, y: 420)
                 self?.addChild(gameOverLabel)
 
                 self?.backButton = SKSpriteNode(imageNamed: "Main Menu Button")
                 self?.backButton.name = "Main Menu"
-                self?.backButton.position = CGPoint(x: 380, y: 120)
+                self?.backButton.position = CGPoint(x: 380, y: 300)
                 self?.backButton.zPosition = 1
                 self?.addChild(self!.backButton)
 
                 self?.retryButton = SKSpriteNode(imageNamed: "Play Again Button")
                 self?.retryButton.name = "Play Again"
-                self?.retryButton.position = CGPoint(x: 644, y: 120)
+                self?.retryButton.position = CGPoint(x: 644, y: 300)
                 self?.retryButton.zPosition = 1
                 self?.addChild(self!.retryButton)
             }
