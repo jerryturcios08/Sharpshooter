@@ -20,7 +20,7 @@ class MenuScene: GameScene {
     }
 
     override func didMove(to view: SKView) {
-        let background = SKSpriteNode(imageNamed: "Background")
+        let background = SKSpriteNode(imageNamed: "Background (Alt)")
         background.name = "Background"
         background.position = CGPoint(x: 512, y: 384)
         background.zPosition = -1
@@ -28,7 +28,7 @@ class MenuScene: GameScene {
 
         let title = SKSpriteNode(imageNamed: "Game Title")
         title.name = "Title"
-        title.position = CGPoint(x: 512, y: 260)
+        title.position = CGPoint(x: 512, y: 440)
         title.size = CGSize(width: 568.7, height: 119.3)
         addChild(title)
 
@@ -46,13 +46,13 @@ class MenuScene: GameScene {
 
         startGameButton = SKSpriteNode(imageNamed: "Start Game Button")
         startGameButton.name = "Start"
-        startGameButton.position = CGPoint(x: 380, y: 120)
+        startGameButton.position = CGPoint(x: 380, y: 300)
         startGameButton.zPosition = 1
         addChild(startGameButton)
 
         aboutButton = SKSpriteNode(imageNamed: "About Button")
         aboutButton.name = "About"
-        aboutButton.position = CGPoint(x: 644, y: 120)
+        aboutButton.position = CGPoint(x: 644, y: 300)
         aboutButton.zPosition = 1
         addChild(aboutButton)
     }

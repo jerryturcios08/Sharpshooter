@@ -10,7 +10,7 @@ import SpriteKit
 
 class AboutScene: GameScene {
     override func didMove(to view: SKView) {
-        let background = SKSpriteNode(imageNamed: "Background (About)")
+        let background = SKSpriteNode(imageNamed: "Background (Alt)")
         background.name = "Background"
         background.position = CGPoint(x: 512, y: 384)
         background.zPosition = -1
