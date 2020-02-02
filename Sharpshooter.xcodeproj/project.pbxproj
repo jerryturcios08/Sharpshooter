@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		344EE6934B9A9F3D41151D22 /* Pods_Sharpshooter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 858ECA14911289BFF5FC2B38 /* Pods_Sharpshooter.framework */; };
 		C62B63A023DFF12D003D1B02 /* constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C62B639F23DFF12D003D1B02 /* constants.swift */; };
 		C62B63A323DFF15A003D1B02 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C62B63A223DFF15A003D1B02 /* StorageManager.swift */; };
 		C66B590D23DB8B2000A77366 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C66B590C23DB8B2000A77366 /* AppDelegate.swift */; };
@@ -27,6 +28,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		858ECA14911289BFF5FC2B38 /* Pods_Sharpshooter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Sharpshooter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A7AF00C56CCD0EDEBCAABF49 /* Pods-Sharpshooter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sharpshooter.debug.xcconfig"; path = "Target Support Files/Pods-Sharpshooter/Pods-Sharpshooter.debug.xcconfig"; sourceTree = "<group>"; };
 		C62B639F23DFF12D003D1B02 /* constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = constants.swift; sourceTree = "<group>"; };
 		C62B63A223DFF15A003D1B02 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
 		C66B590923DB8B2000A77366 /* Sharpshooter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sharpshooter.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -36,7 +39,7 @@
 		C66B591423DB8B2000A77366 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		C66B591723DB8B2000A77366 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C66B591923DB8B2300A77366 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		C66B591E23DB8B2300A77366 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C66B591E23DB8B2300A77366 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; usesTabs = 0; };
 		C66B592623DBBB5C00A77366 /* gunfire.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = gunfire.mp3; sourceTree = "<group>"; };
 		C66B592823DBC71500A77366 /* dryfire.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = dryfire.mp3; sourceTree = "<group>"; };
 		C66B592A23DBC7B400A77366 /* reload.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = reload.mp3; sourceTree = "<group>"; };
@@ -46,6 +49,7 @@
 		C68F7CB723DF333D0070E40B /* AboutScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = AboutScene.sks; sourceTree = "<group>"; };
 		C68F7CB923DF33680070E40B /* AboutScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutScene.swift; sourceTree = "<group>"; };
 		C6D9B1F323DFAB2400E7CB0F /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		D695C19C5600AF0529BEFD06 /* Pods-Sharpshooter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sharpshooter.release.xcconfig"; path = "Target Support Files/Pods-Sharpshooter/Pods-Sharpshooter.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,12 +57,30 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				344EE6934B9A9F3D41151D22 /* Pods_Sharpshooter.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		565043A0BD123687059A9D77 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				858ECA14911289BFF5FC2B38 /* Pods_Sharpshooter.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7E165762FB14CED1703D1BA5 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A7AF00C56CCD0EDEBCAABF49 /* Pods-Sharpshooter.debug.xcconfig */,
+				D695C19C5600AF0529BEFD06 /* Pods-Sharpshooter.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		C62B639E23DFF0EC003D1B02 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
@@ -80,6 +102,8 @@
 			children = (
 				C66B590B23DB8B2000A77366 /* Sharpshooter */,
 				C66B590A23DB8B2000A77366 /* Products */,
+				7E165762FB14CED1703D1BA5 /* Pods */,
+				565043A0BD123687059A9D77 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -163,9 +187,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C66B592123DB8B2300A77366 /* Build configuration list for PBXNativeTarget "Sharpshooter" */;
 			buildPhases = (
+				0424DC2930A3584AFBB0BDBE /* [CP] Check Pods Manifest.lock */,
 				C66B590523DB8B1F00A77366 /* Sources */,
 				C66B590623DB8B1F00A77366 /* Frameworks */,
 				C66B590723DB8B1F00A77366 /* Resources */,
+				AD5C6D7CC759F8F55BD014B2 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -228,6 +254,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0424DC2930A3584AFBB0BDBE /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Sharpshooter-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AD5C6D7CC759F8F55BD014B2 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Sharpshooter/Pods-Sharpshooter-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Sharpshooter/Pods-Sharpshooter-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Sharpshooter/Pods-Sharpshooter-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		C66B590523DB8B1F00A77366 /* Sources */ = {
@@ -374,6 +442,7 @@
 		};
 		C66B592223DB8B2300A77366 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A7AF00C56CCD0EDEBCAABF49 /* Pods-Sharpshooter.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -393,6 +462,7 @@
 		};
 		C66B592323DB8B2300A77366 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D695C19C5600AF0529BEFD06 /* Pods-Sharpshooter.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

@@ -6,14 +6,18 @@
 //  Copyright © 2020 Jerry Turcios. All rights reserved.
 //
 
-import UIKit
+import GoogleMobileAds
 import SpriteKit
-import GameplayKit
+import UIKit
 
 class GameViewController: UIViewController {
+    var bannerView: GADBannerView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        // Configures the banner ad from Google AdMob
+        configureBannerView()
 
         if let view = self.view as! SKView? {
             // Load the SKScene from 'GameScene.sks'
@@ -35,6 +39,26 @@ class GameViewController: UIViewController {
             view.showsNodeCount = false
             #endif
         }
+    }
+
+    private func configureBannerView() {
+        bannerView = GADBannerView(adSize: kGADAdSizeBanner)
+        bannerView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(bannerView)
+
+        NSLayoutConstraint.activate([
+            bannerView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            bannerView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
+        ])
+
+        #if DEBUG
+        bannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716"
+        #else
+        bannerView.adUnitID = "ca-app-pub-7650921031103818/4452454902"
+        #endif
+
+        bannerView.rootViewController = self
+        bannerView.load(GADRequest())
     }
 
     override var shouldAutorotate: Bool {
